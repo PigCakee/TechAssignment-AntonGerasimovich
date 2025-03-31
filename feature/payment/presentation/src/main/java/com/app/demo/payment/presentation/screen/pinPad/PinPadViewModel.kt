@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.demo.navigation.api.NavigationManager
 import com.app.demo.navigation.api.showToast
+import com.app.demo.payment.domain.usecase.MakePaymentUseCase
 import com.app.demo.payment.presentation.R
 import com.app.demo.payment.presentation.model.Pad
 import com.app.demo.ui.model.UiText
@@ -24,7 +25,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PinPadViewModel @Inject constructor(
-    private val navigationManager: NavigationManager
+    private val navigationManager: NavigationManager,
+    private val makePaymentUseCase: MakePaymentUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(UiState())
     val state = _state.asStateFlow()

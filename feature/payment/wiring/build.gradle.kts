@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.demo.android.library)
     alias(libs.plugins.demo.hilt)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id(libs.plugins.kotlinx.serialization.get().pluginId)
 }
 
 android {
@@ -17,5 +18,8 @@ dependencies {
     implementation(libs.hilt.core)
     implementation(libs.hilt.compiler)
     implementation(libs.hilt.android)
-    testImplementation(libs.junit.junit)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.okhttp)
+    implementation(libs.kotlinx.serialization.json)
 }

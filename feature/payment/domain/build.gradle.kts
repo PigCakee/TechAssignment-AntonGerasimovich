@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.demo.android.library)
+    alias(libs.plugins.demo.hilt)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
