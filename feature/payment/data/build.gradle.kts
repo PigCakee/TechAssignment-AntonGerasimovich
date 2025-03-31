@@ -1,15 +1,15 @@
 plugins {
     alias(libs.plugins.demo.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.demo.hilt)
 }
 
 android {
-    namespace = "com.app.demo.navigation.impl"
+    namespace = "com.app.demo.payment.data"
 }
 
 dependencies {
-    implementation(project(":common:navigation:api"))
+    implementation(project(":feature:payment:domain"))
 
     implementation(libs.androidx.core.ktx)
+    testImplementation(libs.junit.junit)
 }
