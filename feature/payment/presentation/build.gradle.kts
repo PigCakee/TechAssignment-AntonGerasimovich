@@ -11,9 +11,18 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:payment:domain"))
     implementation(project(":common:ui"))
     implementation(project(":common:di"))
+    implementation(project(":common:navigation:api"))
+    implementation(project(":feature:payment:domain"))
 
     implementation(libs.androidx.core.ktx)
+
+    testImplementation(libs.junit)
+    testRuntimeOnly(libs.junit.engine)
+    testImplementation(libs.junit.params)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.testing)
+    testImplementation(libs.turbine)
 }

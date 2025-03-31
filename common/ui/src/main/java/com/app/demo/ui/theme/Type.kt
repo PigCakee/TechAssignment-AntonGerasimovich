@@ -40,26 +40,26 @@ fun ProvideDemoTypography(
 
 private val DefaultDemoTypography = DemoTypography(
     title = TextStyle(
-        fontSize = 66.sp,
-        lineHeight = 91.sp,
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
         fontFamily = font,
         fontWeight = FontWeight.SemiBold
     ),
     subtitle = TextStyle(
-        fontSize = 32.sp,
-        lineHeight = 44.sp,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
         fontFamily = font,
         fontWeight = FontWeight.Normal
     ),
     pinPad = TextStyle(
-        fontSize = 66.sp,
-        lineHeight = 91.sp,
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
         fontFamily = font,
         fontWeight = FontWeight.Medium
     ),
     pinPadWindow = TextStyle(
-        fontSize = 66.sp,
-        lineHeight = 91.sp,
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
         fontFamily = font,
         fontWeight = FontWeight.SemiBold
     )

@@ -3,9 +3,11 @@ package com.app.demo.payment.presentation.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,9 +22,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.app.demo.payment.presentation.R
@@ -36,12 +38,14 @@ fun PinPad(
     modifier: Modifier = Modifier,
     onPadClick: (Pad) -> Unit,
     onBackspaceClick: () -> Unit,
+    onBackspaceLongPressed: () -> Unit,
+    onBackspaceLongPressReleased: () -> Unit,
     onOkClick: () -> Unit
 ) {
     Column(
         modifier = modifier
             .background(color = DemoTheme.colors.pinPad)
-            .padding(horizontal = 60.dp, vertical = 50.dp),
+            .padding(horizontal = 16.dp, vertical = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -107,7 +111,11 @@ fun PinPad(
         )
         PinPadRow(
             leftButton = {
-                Backspace(onClick = onBackspaceClick)
+                Backspace(
+                    onClick = onBackspaceClick,
+                    onLongPress = onBackspaceLongPressed,
+                    onLongPressRelease = onBackspaceLongPressReleased
+                )
             },
             centerButton = {
                 PinPadButton(
@@ -123,13 +131,14 @@ fun PinPad(
 }
 
 @Composable
-private fun PinPadRow(
+private fun ColumnScope.PinPadRow(
     leftButton: @Composable (RowScope.() -> Unit),
     centerButton: @Composable (RowScope.() -> Unit),
     rightButton: @Composable (RowScope.() -> Unit),
 ) {
     Row(
         modifier = Modifier
+            .weight(1f)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -151,8 +160,7 @@ private fun RowScope.PinPadButton(
             .weight(1f)
             .height(ButtonHeight)
             .clip(shape = RoundedCornerShape(16.dp))
-            .clickable { onClick() }
-            .then(modifier),
+            .clickable { onClick() },
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),
@@ -166,18 +174,29 @@ private fun RowScope.PinPadButton(
 @Composable
 private fun RowScope.Backspace(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onLongPress: () -> Unit,
+    onLongPressRelease: () -> Unit
 ) {
     Box(
         modifier = modifier
             .weight(1f)
             .height(ButtonHeight)
             .clip(shape = RoundedCornerShape(16.dp))
-            .clickable { onClick() },
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { onClick() },
+                    onLongPress = { onLongPress() },
+                    onPress = {
+                        tryAwaitRelease()
+                        onLongPressRelease()
+                    }
+                )
+            },
     ) {
         Image(
             modifier = Modifier
-                .size(64.dp)
+                .size(32.dp)
                 .align(Alignment.Center),
             imageVector = ImageVector.vectorResource(id = R.drawable.ic_clear_num),
             contentDescription = "Clear",
@@ -201,14 +220,16 @@ private fun RowScope.OkButton(
     )
 }
 
-@Preview(showBackground = true, widthDp = 720, heightDp = 685)
+@Preview(showBackground = true)
 @Composable
 private fun PreviewPinPad() {
     DemoTheme {
         PinPad(
-            onPadClick = { },
-            onBackspaceClick = { },
-            onOkClick = { }
+            onPadClick = {},
+            onBackspaceClick = {},
+            onBackspaceLongPressed = {},
+            onBackspaceLongPressReleased = {},
+            onOkClick = {}
         )
     }
 }

@@ -44,11 +44,11 @@ android {
 }
 
 dependencies {
-
     implementation(project(":common:di"))
     implementation(project(":common:ui"))
     implementation(project(":common:navigation:api"))
     implementation(project(":common:navigation:wiring"))
+    implementation(project(":feature:payment:presentation"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.material3)
