@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.demo.android.library)
+    alias(libs.plugins.demo.hilt)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
@@ -13,5 +14,8 @@ dependencies {
     implementation(project(":feature:payment:presentation"))
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.hilt.core)
+    implementation(libs.hilt.compiler)
+    implementation(libs.hilt.android)
     testImplementation(libs.junit.junit)
 }
