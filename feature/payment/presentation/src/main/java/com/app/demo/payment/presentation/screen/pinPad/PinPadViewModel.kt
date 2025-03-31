@@ -3,7 +3,10 @@ package com.app.demo.payment.presentation.screen.pinPad
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.demo.navigation.api.NavigationManager
+import com.app.demo.navigation.api.showToast
+import com.app.demo.payment.presentation.R
 import com.app.demo.payment.presentation.model.Pad
+import com.app.demo.ui.model.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -42,7 +45,11 @@ class PinPadViewModel @Inject constructor(
     }
 
     private fun onOkClicked() {
-        navigationManager
+        if (state.value.amount == DEFAULT_AMOUNT) {
+            navigationManager.showToast(UiText.Id(R.string.error_amount_zero))
+        } else {
+            // todo add payment logic
+        }
     }
 
     private fun onBackspaceClicked() {
@@ -94,7 +101,7 @@ class PinPadViewModel @Inject constructor(
         backspaceJob = viewModelScope.launch {
             while (true) {
                 onBackspaceClicked()
-                if (_state.value.amount == "0.00") break
+                if (state.value.amount == DEFAULT_AMOUNT) break
                 delay(100L)
             }
         }
@@ -130,11 +137,12 @@ class PinPadViewModel @Inject constructor(
     }
 
     data class UiState(
-        val amount: String = "0.00",
+        val amount: String = DEFAULT_AMOUNT,
     )
 
     companion object {
         const val INTEGER_PART_LENGTH = 10
         const val DECIMAL_PLACES = 2
+        const val DEFAULT_AMOUNT = "0.00"
     }
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.demo.hilt)
     alias(libs.plugins.demo.android.library.compose)
     alias(libs.plugins.compose.compiler)
+    id(libs.plugins.kotlinx.serialization.get().pluginId)
 }
 
 android {
@@ -17,6 +18,7 @@ dependencies {
     implementation(project(":feature:payment:domain"))
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
     testRuntimeOnly(libs.junit.engine)

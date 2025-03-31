@@ -51,5 +51,6 @@ dependencies {
     implementation(project(":feature:payment:presentation"))
 
     implementation(libs.androidx.activity.compose)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.material3)
 }
