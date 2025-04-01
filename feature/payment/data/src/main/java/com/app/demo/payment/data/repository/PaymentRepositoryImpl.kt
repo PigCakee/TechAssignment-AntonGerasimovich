@@ -11,6 +11,9 @@ import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import javax.inject.Inject
 
+/**
+ * Repository implementation for handling payment transactions.
+ */
 class PaymentRepositoryImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
     private val paymentWebService: PaymentWebService

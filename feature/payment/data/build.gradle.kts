@@ -7,6 +7,11 @@ plugins {
 
 android {
     namespace = "com.app.demo.payment.data"
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -17,5 +22,13 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
-    testImplementation(libs.junit.junit)
+    implementation(libs.okhttp)
+
+    testImplementation(libs.junit)
+    testRuntimeOnly(libs.junit.engine)
+    testImplementation(libs.junit.params)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.testing)
+    testImplementation(libs.turbine)
 }
