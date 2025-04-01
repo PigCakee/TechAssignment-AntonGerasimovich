@@ -11,6 +11,7 @@ android {
 
 dependencies {
     implementation(project(":common:di"))
+    implementation(project(":common:network"))
     implementation(project(":feature:payment:domain"))
 
     implementation(libs.androidx.core.ktx)

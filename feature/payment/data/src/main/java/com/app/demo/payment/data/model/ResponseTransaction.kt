@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ResponsePayment(
+data class ResponseTransaction(
     @SerialName("transactionId")
     val transactionId: String,
     @SerialName("status")

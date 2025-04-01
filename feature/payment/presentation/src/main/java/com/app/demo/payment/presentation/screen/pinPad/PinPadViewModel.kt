@@ -3,10 +3,14 @@ package com.app.demo.payment.presentation.screen.pinPad
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.demo.navigation.api.NavigationManager
+import com.app.demo.navigation.api.forwardTo
 import com.app.demo.navigation.api.showToast
+import com.app.demo.network.ext.toUiText
 import com.app.demo.payment.domain.usecase.MakePaymentUseCase
 import com.app.demo.payment.presentation.R
+import com.app.demo.payment.presentation.mapper.toUiModel
 import com.app.demo.payment.presentation.model.Pad
+import com.app.demo.payment.presentation.navigation.ReceiptDialog
 import com.app.demo.ui.model.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -47,10 +51,29 @@ class PinPadViewModel @Inject constructor(
     }
 
     private fun onOkClicked() {
-        if (state.value.amount == DEFAULT_AMOUNT) {
+        val amount = state.value.amount
+            .replace(",", "")
+            .toBigDecimalOrNull()
+        if (amount == BigDecimal.ZERO.setScale(DECIMAL_PLACES) || amount == null) {
             navigationManager.showToast(UiText.Id(R.string.error_amount_zero))
         } else {
-            // todo add payment logic
+            _state.update { state -> state.copy(isLoading = true) }
+            viewModelScope.launch {
+                makePaymentUseCase.invoke(amount).fold(
+                    onSuccess = { transaction ->
+                        if (transaction != null) {
+                            navigationManager.forwardTo(ReceiptDialog(transaction.toUiModel()))
+                        } else {
+                            navigationManager.showToast(UiText.Id(com.app.demo.ui.R.string.error_generic))
+                        }
+                        _state.update { state -> state.copy(isLoading = false) }
+                    },
+                    onFailure = { error ->
+                        _state.update { state -> state.copy(isLoading = false) }
+                        navigationManager.showToast(error.toUiText())
+                    }
+                )
+            }
         }
     }
 
@@ -140,6 +163,7 @@ class PinPadViewModel @Inject constructor(
 
     data class UiState(
         val amount: String = DEFAULT_AMOUNT,
+        val isLoading: Boolean = false,
     )
 
     companion object {

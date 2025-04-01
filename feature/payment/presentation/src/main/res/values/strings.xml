@@ -5,8 +5,8 @@
     <string name="purchase_hint">Please enter amount.</string>
     <string name="receipt_title">Your receipt</string>
     <string name="receipt_transaction_id">Transaction ID: %s</string>
-    <string name="receipt_status">Status: %s</string>
-    <string name="receipt_purchase_amount">Purchase amount: %s</string>
+    <string name="receipt_status">Transaction status: %s</string>
+    <string name="receipt_final_amount">Final amount: %s</string>
     <string name="receipt_currency">Currency: %s</string>
     <string name="receipt_taxable_amount">Taxable amount: %s</string>
     <string name="receipt_tax_rate">Tax rate: %s</string>

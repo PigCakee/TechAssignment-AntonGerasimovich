@@ -14,6 +14,8 @@ android {
 dependencies {
     implementation(project(":common:ui"))
     implementation(project(":common:di"))
+    implementation(project(":common:network"))
+    implementation(project(":common:utility"))
     implementation(project(":common:navigation:api"))
     implementation(project(":feature:payment:domain"))
 
