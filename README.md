@@ -54,18 +54,18 @@ This Payment App allows users to enter a transaction amount via a PinPad interfa
 The project is organized into multiple modules to achieve a clean separation of concerns:
 
 ### Module Structure
-├── app/             // Android application module
-├── common/
-│   ├── di/          // Hilt DispatchersQualifiers
-│   ├── navigation/  // Navigation Manager & related utils
-│   ├── network/     // BaseRepository, NetworkResult, common network handling
-│   └── utility/     // Utility classes (e.g., DateTimeUtils)
-├── feature-payment/
-│   ├── domain/      // Use cases, domain models
-│   ├── data/        // Repositories, Retrofit APIs
-│   ├── presentation // Compose UI, ViewModels
-│   └── di/          // Hilt modules for payment feature
-└── build-logic/     // Gradle convention plugins
+├── app/ 		// Android application module  
+├── common/ 		// Shared modules  
+│   ├── di/ 		// Hilt DispatchersQualifiers  
+│   ├── navigation/ 	// Navigation Manager & related utils  
+│   ├── network/ 	// BaseRepository, NetworkResult, common network handling  
+│   └── utility/ 	// Utility classes (e.g., DateTimeUtils)  
+├── feature-payment/ 	// Payment feature modules  
+│   ├── domain/ 	// Use cases, domain models  
+│   ├── data/ 		// Repositories, Retrofit APIs  
+│   ├── presentation/ 	// Compose UI, ViewModels  
+│   └── di/ 		// Hilt modules for payment feature  
+└── build-logic/ 	// Gradle convention plugins
 
 ### Key Components
 
@@ -137,7 +137,11 @@ Key dependencies are managed via Gradle version catalog (libs.versions.toml). No
 For the complete list of dependencies, please refer to the libs.versions.toml file in the root project directory.
 
 ## Screenshots
+Initial State
 ![Initial State](https://github.com/user-attachments/assets/33c25d3f-5b6e-45c4-9caf-7104b75983dc)
-![A few digits](https://github.com/user-attachments/assets/e82bcba0-ac8d-4aff-9073-7676cc5b3da7)
+A few digits
+![A few digits](https://github.com/user-attachments/assets/7e544061-9a36-49dc-ae9e-247fffe7c3f4)
+9 Digits
 ![9 Digits](https://github.com/user-attachments/assets/5e7abe3f-e511-41a2-9f0c-36b07275a28d)
+Transaction Receipt
 ![Transaction Receipt](https://github.com/user-attachments/assets/95f55961-3827-4f08-b23e-5d8ebf199412)
