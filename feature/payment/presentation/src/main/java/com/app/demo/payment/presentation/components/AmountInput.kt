@@ -2,44 +2,42 @@ package com.app.demo.payment.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.app.demo.ui.theme.DemoTheme
 
 @Composable
 fun AmountInput(
-    amount: String,
+    amount: State<String>,
     modifier: Modifier = Modifier,
 ) {
-    Box(
+    Text(
+        text = amount.value,
+        style = DemoTheme.typography.pinPadWindow,
+        color = DemoTheme.colors.textPrimary,
+        textAlign = TextAlign.Center,
         modifier = modifier.border(
             border = BorderStroke(width = 1.dp, color = DemoTheme.colors.uiBorder),
             shape = RoundedCornerShape(16.dp)
         )
-    ) {
-        Text(
-            text = amount,
-            style = DemoTheme.typography.pinPadWindow,
-            color = DemoTheme.colors.textPrimary,
-            modifier = Modifier
-                .padding(16.dp)
-                .align(Alignment.Center)
-        )
-    }
+            .padding(16.dp)
+    )
 }
 
 @Preview(name = "Default Amount", showBackground = true)
 @Composable
 fun PreviewAmountInputDefault() {
     DemoTheme {
-        AmountInput(amount = "0.00")
+        AmountInput(amount = remember { mutableStateOf("0.00") })
     }
 }
 
@@ -47,7 +45,7 @@ fun PreviewAmountInputDefault() {
 @Composable
 fun PreviewAmountInputLarge() {
     DemoTheme {
-        AmountInput(amount = "12345.67")
+        AmountInput(amount = remember { mutableStateOf("12345.67") })
     }
 }
 
@@ -55,6 +53,6 @@ fun PreviewAmountInputLarge() {
 @Composable
 fun PreviewAmountInputEmpty() {
     DemoTheme {
-        AmountInput(amount = "")
+        AmountInput(amount =remember { mutableStateOf( "") })
     }
 }

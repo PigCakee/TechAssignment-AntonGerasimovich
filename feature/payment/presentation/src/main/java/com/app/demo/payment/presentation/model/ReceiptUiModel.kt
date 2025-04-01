@@ -6,11 +6,8 @@ import kotlinx.serialization.Serializable
 data class ReceiptUiModel(
     val transactionId: String,
     val status: String,
-    val purchaseAmount: String,
+    val finalAmount: String,
     val currency: String,
-    val taxableAmount: String,
-    val taxRate: String,
-    val tipAmount: String,
-    val discountAmount: String,
-    val timestamp: String,
+    val tax: String,
+    val date: String,
 )

@@ -46,7 +46,10 @@ fun ReceiptBottomSheet(
                 color = textColor
             )
             Text(
-                text = stringResource(R.string.receipt_transaction_id, receiptUiModel.transactionId),
+                text = stringResource(
+                    R.string.receipt_transaction_id,
+                    receiptUiModel.transactionId
+                ),
                 style = subtitleStyle,
                 color = textColor
             )
@@ -56,37 +59,25 @@ fun ReceiptBottomSheet(
                 color = textColor
             )
             Text(
-                text = stringResource(R.string.receipt_final_amount, receiptUiModel.purchaseAmount),
+                text = stringResource(
+                    R.string.receipt_final_amount,
+                    receiptUiModel.finalAmount,
+                    receiptUiModel.currency
+                ),
                 style = subtitleStyle,
                 color = textColor
             )
             Text(
-                text = stringResource(R.string.receipt_currency, receiptUiModel.currency),
+                text = stringResource(
+                    R.string.receipt_taxable_amount,
+                    receiptUiModel.tax,
+                    receiptUiModel.currency
+                ),
                 style = subtitleStyle,
                 color = textColor
             )
             Text(
-                text = stringResource(R.string.receipt_taxable_amount, receiptUiModel.taxableAmount),
-                style = subtitleStyle,
-                color = textColor
-            )
-            Text(
-                text = stringResource(R.string.receipt_tax_rate, receiptUiModel.taxRate),
-                style = subtitleStyle,
-                color = textColor
-            )
-            Text(
-                text = stringResource(R.string.receipt_tip_amount, receiptUiModel.tipAmount),
-                style = subtitleStyle,
-                color = textColor
-            )
-            Text(
-                text = stringResource(R.string.receipt_discount_amount, receiptUiModel.discountAmount),
-                style = subtitleStyle,
-                color = textColor
-            )
-            Text(
-                text = stringResource(R.string.receipt_timestamp, receiptUiModel.timestamp),
+                text = stringResource(R.string.receipt_date, receiptUiModel.date),
                 style = subtitleStyle,
                 color = textColor
             )

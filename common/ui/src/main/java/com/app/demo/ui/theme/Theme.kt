@@ -51,6 +51,7 @@ data class DemoColors(
     val textSecondary: Color,
     val loader: Color,
     val pinPad: Color,
+    val scrim: Color,
 )
 
 @Composable
@@ -72,5 +73,6 @@ private val LocalDemoColors = staticCompositionLocalOf {
         textSecondary = SecondaryColor,
         loader = LoaderColor,
         pinPad = PinPadColor,
+        scrim = PinPadScrimColor
     )
 }

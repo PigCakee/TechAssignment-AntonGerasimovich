@@ -7,10 +7,6 @@ import com.app.demo.ui.model.UiText
 fun Throwable.toUiText(): UiText {
     return when (this) {
         is HttpException -> toUiText()
-        else -> if (message != null) {
-            UiText.Text(message!!)
-        } else {
-            UiText.Id(R.string.error_generic)
-        }
+        else -> UiText.Id(R.string.error_generic)
     }
 }

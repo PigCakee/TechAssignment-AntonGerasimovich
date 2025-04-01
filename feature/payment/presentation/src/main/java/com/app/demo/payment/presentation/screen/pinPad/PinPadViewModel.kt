@@ -8,7 +8,7 @@ import com.app.demo.navigation.api.showToast
 import com.app.demo.network.ext.toUiText
 import com.app.demo.payment.domain.usecase.MakePaymentUseCase
 import com.app.demo.payment.presentation.R
-import com.app.demo.payment.presentation.mapper.toUiModel
+import com.app.demo.payment.presentation.mapper.toReceiptUiModel
 import com.app.demo.payment.presentation.model.Pad
 import com.app.demo.payment.presentation.navigation.ReceiptDialog
 import com.app.demo.ui.model.UiText
@@ -62,7 +62,7 @@ class PinPadViewModel @Inject constructor(
                 makePaymentUseCase.invoke(amount).fold(
                     onSuccess = { transaction ->
                         if (transaction != null) {
-                            navigationManager.forwardTo(ReceiptDialog(transaction.toUiModel()))
+                            navigationManager.forwardTo(ReceiptDialog(transaction.toReceiptUiModel()))
                         } else {
                             navigationManager.showToast(UiText.Id(com.app.demo.ui.R.string.error_generic))
                         }
