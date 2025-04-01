@@ -128,21 +128,15 @@ For the complete list of dependencies, please refer to the libs.versions.toml fi
 
 ## Screenshots
 <div align="center">
-  Initial State
+  <h3>Initial State</h3>
+  <img src="https://github.com/user-attachments/assets/33c25d3f-5b6e-45c4-9caf-7104b75983dc" alt="Initial State" width="300"/>
+  
+  <h3>A few digits</h3>
+  <img src="https://github.com/user-attachments/assets/7e544061-9a36-49dc-ae9e-247fffe7c3f4" alt="A few digits" width="300"/>
+  
+  <h3>9 Digits</h3>
+  <img src="https://github.com/user-attachments/assets/5e7abe3f-e511-41a2-9f0c-36b07275a28d" alt="9 Digits" width="300"/>
+  
+  <h3>Transaction Receipt</h3>
+  <img src="https://github.com/user-attachments/assets/95f55961-3827-4f08-b23e-5d8ebf199412" alt="Transaction Receipt" width="300"/>
 </div>
-![Initial State](https://github.com/user-attachments/assets/33c25d3f-5b6e-45c4-9caf-7104b75983dc)
-
-<div align="center">
-  A few digits
-</div>
-![A few digits](https://github.com/user-attachments/assets/7e544061-9a36-49dc-ae9e-247fffe7c3f4)
-
-<div align="center">
-  9 Digits
-</div>
-![9 Digits](https://github.com/user-attachments/assets/5e7abe3f-e511-41a2-9f0c-36b07275a28d)
-
-<div align="center">
-  Transaction Receipt
-</div>
-![Transaction Receipt](https://github.com/user-attachments/assets/95f55961-3827-4f08-b23e-5d8ebf199412)
