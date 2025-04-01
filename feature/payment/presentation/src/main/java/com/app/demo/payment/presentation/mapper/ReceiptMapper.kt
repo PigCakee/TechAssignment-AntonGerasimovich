@@ -6,7 +6,7 @@ import com.app.demo.utility.date.DateTimeUtils
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-fun Transaction.toReceiptUiModel() : ReceiptUiModel {
+internal fun Transaction.toReceiptUiModel() : ReceiptUiModel {
     val purchase = purchaseAmount.toBigDecimalOrNull() ?: BigDecimal.ZERO
     val tip = tipAmount.toBigDecimalOrNull() ?: BigDecimal.ZERO
     val discount = discountAmount.toBigDecimalOrNull() ?: BigDecimal.ZERO

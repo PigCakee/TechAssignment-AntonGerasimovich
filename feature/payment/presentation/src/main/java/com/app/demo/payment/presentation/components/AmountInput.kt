@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.app.demo.ui.theme.DemoTheme
 
 @Composable
-fun AmountInput(
+internal fun AmountInput(
     amount: State<String>,
     modifier: Modifier = Modifier,
 ) {
@@ -35,7 +35,7 @@ fun AmountInput(
 
 @Preview(name = "Default Amount", showBackground = true)
 @Composable
-fun PreviewAmountInputDefault() {
+private fun PreviewAmountInputDefault() {
     DemoTheme {
         AmountInput(amount = remember { mutableStateOf("0.00") })
     }
@@ -43,7 +43,7 @@ fun PreviewAmountInputDefault() {
 
 @Preview(name = "Large Amount", showBackground = true)
 @Composable
-fun PreviewAmountInputLarge() {
+private fun PreviewAmountInputLarge() {
     DemoTheme {
         AmountInput(amount = remember { mutableStateOf("12345.67") })
     }
@@ -51,7 +51,7 @@ fun PreviewAmountInputLarge() {
 
 @Preview(name = "Empty Amount", showBackground = true)
 @Composable
-fun PreviewAmountInputEmpty() {
+private fun PreviewAmountInputEmpty() {
     DemoTheme {
         AmountInput(amount =remember { mutableStateOf( "") })
     }

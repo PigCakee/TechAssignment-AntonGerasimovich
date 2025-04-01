@@ -1,6 +1,6 @@
 package com.app.demo.payment.presentation.model
 
-enum class Pad(val symbol: Char) {
+internal enum class Pad(val symbol: Char) {
     ONE('1'),
     TWO('2'),
     THREE('3'),

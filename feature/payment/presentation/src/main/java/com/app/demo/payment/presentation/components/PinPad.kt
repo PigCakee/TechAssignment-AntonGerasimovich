@@ -34,7 +34,7 @@ import com.app.demo.ui.theme.DemoTheme
 val ButtonHeight = 120.dp
 
 @Composable
-fun PinPad(
+internal fun PinPad(
     modifier: Modifier = Modifier,
     onPadClick: (Pad) -> Unit,
     onBackspaceClick: () -> Unit,

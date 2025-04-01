@@ -28,7 +28,7 @@ import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
-class PinPadViewModel @Inject constructor(
+internal class PinPadViewModel @Inject constructor(
     private val navigationManager: NavigationManager,
     private val makePaymentUseCase: MakePaymentUseCase
 ) : ViewModel() {

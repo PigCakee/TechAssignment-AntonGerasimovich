@@ -29,7 +29,7 @@ import com.app.demo.payment.presentation.components.PinPadLoader
 import com.app.demo.ui.theme.DemoTheme
 
 @Composable
-fun PinPadScreen() {
+internal fun PinPadScreen() {
     val viewModel = hiltViewModel<PinPadViewModel>()
     val state = viewModel.state.collectAsStateWithLifecycle()
     val haptic = LocalHapticFeedback.current

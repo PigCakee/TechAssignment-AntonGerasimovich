@@ -12,7 +12,7 @@ import com.app.demo.ui.component.Loader
 import com.app.demo.ui.theme.DemoTheme
 
 @Composable
-fun PinPadLoader(
+internal fun PinPadLoader(
     isLoading: State<Boolean>,
     modifier: Modifier = Modifier
 ) {

@@ -19,7 +19,7 @@ import com.app.demo.ui.theme.DemoTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReceiptBottomSheet(
+internal fun ReceiptBottomSheet(
     sheetState: SheetState,
     receiptUiModel: ReceiptUiModel,
     onDismiss: () -> Unit,
