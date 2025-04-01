@@ -34,7 +34,7 @@ android {
 
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/gradle/incremental.annotation.processors"
         }
     }
 
@@ -44,12 +44,14 @@ android {
 }
 
 dependencies {
-
     implementation(project(":common:di"))
     implementation(project(":common:ui"))
     implementation(project(":common:navigation:api"))
     implementation(project(":common:navigation:wiring"))
+    implementation(project(":feature:payment:presentation"))
+    implementation(project(":feature:payment:wiring"))
 
     implementation(libs.androidx.activity.compose)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.material3)
 }

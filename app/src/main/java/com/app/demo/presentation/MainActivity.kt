@@ -1,34 +1,39 @@
 package com.app.demo.presentation
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.app.demo.navigation.api.NavigationManager
+import com.app.demo.presentation.navigation.MainNavHost
+import com.app.demo.ui.theme.DemoTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @SuppressLint("RestrictedApi")
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    @Inject
+    lateinit var navigationManager: NavigationManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.light(
-                Color.TRANSPARENT,
-                Color.TRANSPARENT
-            ),
-            navigationBarStyle = SystemBarStyle.light(
-                Color.TRANSPARENT,
-                Color.WHITE,
-            )
-        )
-
         setContent {
-
+            val navController = rememberNavController()
+            MainNavHost(
+                navController = navController,
+                navigationManager = navigationManager,
+                modifier = Modifier
+                    .background(color = DemoTheme.colors.surface)
+                    .fillMaxSize()
+                    .systemBarsPadding(),
+            )
         }
     }
 }

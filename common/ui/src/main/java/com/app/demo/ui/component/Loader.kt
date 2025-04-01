@@ -19,12 +19,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.app.demo.ui.R
 import com.app.demo.ui.theme.DemoTheme
-import com.app.demo.ui.theme.LoaderColor
 
 @Composable
 fun Loader(
     modifier: Modifier = Modifier,
-    tint: Color = LoaderColor
+    tint: Color = DemoTheme.colors.loader
 ) {
     val transition = rememberInfiniteTransition()
     val spinAngle by transition.animateFloat(
@@ -53,7 +52,7 @@ private fun LoaderPreview() {
     DemoTheme {
         Loader(
             modifier = Modifier.size(40.dp),
-            tint = LoaderColor
+            tint = DemoTheme.colors.loader
         )
     }
 }
