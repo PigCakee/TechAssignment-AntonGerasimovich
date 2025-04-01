@@ -108,10 +108,8 @@ The project is organized into multiple modules to achieve a clean separation of 
 Running Unit Tests
 
 The project includes unit tests for repository and ViewModel logic. To run the tests:
-	1.	From Android Studio:
-	•	Right-click on the test folder and select Run Tests in ‘test’.
-	2.	From Command Line:
-  •	./gradlew test
+1. From Android Studio: Right-click on the test folder and select Run Tests in ‘test’.
+2. From Command Line: ./gradlew test
 
 Tests utilize JUnit 5, Google Truth, and Turbine for verifying network responses and UI events.
 
