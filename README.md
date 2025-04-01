@@ -127,7 +127,22 @@ Key dependencies are managed via Gradle version catalog (libs.versions.toml). No
 For the complete list of dependencies, please refer to the libs.versions.toml file in the root project directory.
 
 ## Screenshots
-1. Initial State ![Initial State](https://github.com/user-attachments/assets/33c25d3f-5b6e-45c4-9caf-7104b75983dc)
-2. A few digits ![A few digits](https://github.com/user-attachments/assets/7e544061-9a36-49dc-ae9e-247fffe7c3f4)
-3. 9 Digits ![9 Digits](https://github.com/user-attachments/assets/5e7abe3f-e511-41a2-9f0c-36b07275a28d)
-4. Transaction Receipt ![Transaction Receipt](https://github.com/user-attachments/assets/95f55961-3827-4f08-b23e-5d8ebf199412)
+<div align="center">
+  Initial State
+</div>
+![Initial State](https://github.com/user-attachments/assets/33c25d3f-5b6e-45c4-9caf-7104b75983dc)
+
+<div align="center">
+  A few digits
+</div>
+![A few digits](https://github.com/user-attachments/assets/7e544061-9a36-49dc-ae9e-247fffe7c3f4)
+
+<div align="center">
+  9 Digits
+</div>
+![9 Digits](https://github.com/user-attachments/assets/5e7abe3f-e511-41a2-9f0c-36b07275a28d)
+
+<div align="center">
+  Transaction Receipt
+</div>
+![Transaction Receipt](https://github.com/user-attachments/assets/95f55961-3827-4f08-b23e-5d8ebf199412)
